@@ -10,7 +10,6 @@
         <file>qml/CPSubtitle.qml</file>
         <file>qml/LYMargin.qml</file>
         <file>qml/CPTextEdit.qml</file>
-        <file>qml/CPComboBox.qml</file>
         <file>qml/VWEngineering.qml</file>
         <file>qml/VWMain.qml</file>
         <file>qml/CPListViewMatrix.qml</file>
