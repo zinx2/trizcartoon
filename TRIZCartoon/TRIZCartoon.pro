@@ -12,9 +12,42 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += main.cpp
+HEADERS += \
+    src/display_information.h \
+    src/native_app.h \
+    src/model.h \
+    src/option.h
 
-RESOURCES += qml.qrc
+SOURCES += \
+    src/main.cpp \
+    src/native_app.cpp \
+    src/display_information.cpp
+
+RESOURCES += qml.qrc \
+    img.qrc \
+    font.qrc
+
+android {
+    QT += androidextras
+
+    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources-native/app
+
+    SOURCES += $$files(android-sources-qt/*.cpp)
+    HEADERS += $$files(android-sources-qt/*.h)
+}
+
+ios {
+    OBJECTIVE_SOURCES += \
+        $$files(ios-sources-native/*.h) \
+        $$files(ios-sources-native/*.m) \
+        $$files(ios-sources-native/*.mm) \
+
+    assets_catalogs.files = $$files($$PWD/ios-sources-native/*.xcassets)\
+                            $$PWD/ios-sources-native/SplashLaunchScreen.xib
+    QMAKE_BUNDLE_DATA += assets_catalogs
+    QMAKE_INFO_PLIST = $$PWD/ios-sources-native/info.plist
+
+}
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -26,3 +59,29 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    img/splash.jpg
+
+#ANDROID
+DISTFILES += $$files(android-sources-native/app/*.*)
+DISTFILES += $$files(android-sources-native/app/src/org/koreatech/trizcontradiction/*.*)
+#DISTFILES += $$files(android-sources-native/libs/*.*)
+DISTFILES += $$files(android-sources-native/app/res/*.*)
+DISTFILES += $$files(android-sources-native/app/res/layout/*.*)
+DISTFILES += $$files(android-sources-native/app/res/values/*.*)
+DISTFILES += $$files(android-sources-native/app/res/values-ko/*.*)
+DISTFILES += $$files(android-sources-native/app/res/drawable/*.*)
+DISTFILES += $$files(android-sources-native/app/res/drawable-v24/*.*)
+DISTFILES += $$files(android-sources-native/app/res/mipmap-anydpi-v26/*.*)
+DISTFILES += $$files(android-sources-native/app/res/mipmap-hdpi/*.*)
+DISTFILES += $$files(android-sources-native/app/res/mipmap-mdpi/*.*)
+DISTFILES += $$files(android-sources-native/app/res/mipmap-xhdpi/*.*)
+DISTFILES += $$files(android-sources-native/app/res/mipmap-xxhdpi/*.*)
+DISTFILES += $$files(android-sources-native/app/res/mipmap-xxxhdpi/*.*)
+
+#IOS
+DISTFILES += $$files(ios-sources-native/*.*)
+DISTFILES += $$files(ios-sources-native/Images.xcassets/*.*)
+DISTFILES += $$files(ios-sources-native/Images.xcassets/AppIcon.appiconset/*.*)
+DISTFILES += $$files(ios-sources-native/Images.xcassets/LaunchImage.launchimage/*.*)
