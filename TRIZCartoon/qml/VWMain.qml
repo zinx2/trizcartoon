@@ -11,12 +11,32 @@ Paper {
     //    width: R.design_size_width
     //    height: R.design_size_height
 
+    CPSearchBar
+    {
+        id: searchBar
+        y: R.height_titlaBar
+
+        Behavior on y { NumberAnimation { duration: 300 } }
+        MouseArea
+        {
+            id: ma
+            width: parent.width
+            height: parent.height
+            onClicked:
+            {
+                searchBar.y =  0
+                loader.y = R.height_titlaBar
+            }
+        }
+    }
+
     Loader
     {
         id: loader
         width: parent.width
-        height: parent.height - R.height_titlaBar
-        y: R.height_titlaBar
+        height: parent.height - R.height_titlaBar - searchBar.height
+        y: R.height_titlaBar + searchBar.height
+        Behavior on y { NumberAnimation { duration: 300 } }
     }
     Component
     {
@@ -232,15 +252,9 @@ Paper {
 
     Component.onCompleted:
     {
-
         viewTrigger.start();
     }
 
-    Keys.onReleased : {
-        consloe.log(popupStack.depth);
-//        if (event.key == Qt.Key_Back)
-//            Qt.quit();
-    }
 
     ListModel {
         id: ds_model

@@ -9,8 +9,9 @@ Rectangle {
     property string titleText : R.string_title
     signal evtBack()
 
-//    width: parent.width
-//    height:parent.height
+    width: opt.ds ? R.design_size_width : parent.width
+    height: opt.ds ? R.design_size_height : parent.height
+
     Rectangle
     {
         id: titleBar
