@@ -12,13 +12,14 @@
         <file>qml/CPTextEdit.qml</file>
         <file>qml/VWEngineering.qml</file>
         <file>qml/VWMain.qml</file>
-        <file>qml/CPListViewMatrix.qml</file>
-        <file>qml/CPExtendableLabel.qml</file>
+        <file>qml/CPListView.qml</file>
         <file>qml/CPDescContradictionMatrix.qml</file>
         <file>qml/CPDescEngineeringVariable.qml</file>
         <file>qml/CPDescText.qml</file>
         <file>qml/CPPopup.qml</file>
         <file>qml/CPSelector.qml</file>
         <file>qml/CPToast.qml</file>
+        <file>qml/CPSearchBar.qml</file>
+        <file>qml/CPTextField.qml</file>
     </qresource>
 </RCC>

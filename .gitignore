@@ -13,3 +13,5 @@ build_desktop_release5
 build_android_debug
 build_android_release
 TRIZCartoon/TRIZCartoon.pro.user
+desk-debug
+mb-debug

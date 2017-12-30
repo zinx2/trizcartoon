@@ -9,82 +9,14 @@ ApplicationWindow {
     visible: true
     width: 1500
     height: 888
-    title: qsTr("Triz Contradiction Matrix")
+    title: qsTr("Triz 40 Cartoon")
 
 
     Component.onCompleted: {
-        //        R.design_size_width = di.width();
+
+        toast("본 앱에 포함된 카툰의 저작권은 GS인터비전에 있으니 무단 복제를 금합니다.");
         fadeoutTimer.running = true;
         console.log(R.design_size_width)
-    }
-
-    property bool doQuit: false
-    Timer
-    {
-        id: doQuitControl
-        interval:1500
-        repeat: false
-        onTriggered: {
-            doQuit = false
-        }
-    }
-    Item {
-        anchors.fill : parent
-        focus: true
-        Keys.onReleased : {
-            console.log("Keys.onReleased >> ")
-            if(/*event.key === Qt.Key_Back || */event.key === Qt.Key_Escape)
-            {
-                if(popupStack.depth > 0)
-                {
-                    popupStack.clear();
-                    return;
-                }
-
-                console.log("stackView.depth >> " + stackView.depth)
-                if(stackView.depth > 1)
-                    stackView.pop();
-                else
-                {
-                    if(!doQuit)
-                    {
-                        toast("한번 더 누르면 앱을 종료합니다.");
-                        doQuit = true;
-                        doQuitControl.start();
-                    }
-                    else
-                        Qt.quit();
-                }
-            }
-        }
-        Keys.onBackPressed: {
-            console.log("Keys.onBackPressed >> ")
-            if (Qt.inputMethod.visible)
-            {
-                Qt.inputMethod.hide()
-                return;
-            }
-
-            if(popupStack.depth > 0)
-            {
-                popupStack.clear();
-                return;
-            }
-
-            if(stackView.depth > 1)
-                stackView.pop();
-            else
-            {
-                if(!doQuit)
-                {
-                    toast("한번 더 누르면 앱을 종료합니다.");
-                    doQuit = true;
-                    doQuitControl.start();
-                }
-                else
-                    Qt.quit();
-            }
-        }
     }
 
     StackView
@@ -93,7 +25,10 @@ ApplicationWindow {
         anchors.fill: parent
         visible: true
 
-        initialItem: VWMain { }
+        initialItem: VWMain
+        {
+
+        }
     }
 
     StackView

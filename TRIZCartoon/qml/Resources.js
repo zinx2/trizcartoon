@@ -44,6 +44,3 @@ var view_file_popup = "CPPopup.qml"
 var design_size_width = di.width();
 var design_size_height = di.height();
 
-var component_engineering = Qt.createComponent(view_file_engineering)
-var component_matrix = Qt.createComponent(view_file_matrix)
-var component_popup = Qt.createComponent(view_file_popup)

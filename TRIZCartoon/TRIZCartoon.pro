@@ -1,4 +1,4 @@
-QT += quick
+QT += quick quickcontrols2
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -65,7 +65,7 @@ DISTFILES += \
 
 #ANDROID
 DISTFILES += $$files(android-sources-native/app/*.*)
-DISTFILES += $$files(android-sources-native/app/src/org/koreatech/trizcontradiction/*.*)
+DISTFILES += $$files(android-sources-native/app/src/org/koreatech/trizcartoon/*.*)
 #DISTFILES += $$files(android-sources-native/libs/*.*)
 DISTFILES += $$files(android-sources-native/app/res/*.*)
 DISTFILES += $$files(android-sources-native/app/res/layout/*.*)

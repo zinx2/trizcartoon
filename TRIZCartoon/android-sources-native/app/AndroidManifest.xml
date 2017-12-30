@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
 <manifest package="org.koreatech.trizcartoon" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" android:versionCode="1" android:installLocation="auto">
     <application android:icon="@drawable/ic_launcher" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="@string/app_name">
-        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation"
-            android:name="org.koreatech.trizcontradiction.MainActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar"
-            android:label="@string/app_name" android:screenOrientation="unspecified">
+        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation" android:name="org.koreatech.trizcartoon.MainActivity" android:theme="@android:style/Theme.Light.NoTitleBar" android:label="@string/app_name" android:screenOrientation="unspecified">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -36,12 +33,10 @@
             -->
             <!-- Splash screen -->
         </activity>
-        <receiver
-            android:name=".GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+        <receiver android:name=".GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="org.koreatech.trizcontradiction" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="org.koreatech.trizcartoon"/>
             </intent-filter>
         </receiver>
         <service android:name=".GcmIntentService"/>
@@ -52,10 +47,10 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <permission android:name="org.koreatech.trizcontradiction.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="org.koreatech.trizcontradiction.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="org.koreatech.trizcartoon.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="org.koreatech.trizcartoon.permission.C2D_MESSAGE"/>
     <!-- %%INSERT_FEATURES -->
 </manifest>

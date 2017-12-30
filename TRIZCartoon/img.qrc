@@ -11,5 +11,6 @@
         <file>img/uncheck.png</file>
         <file>img/listhead.png</file>
         <file>img/close_white.png</file>
+        <file>img/search_white.png</file>
     </qresource>
 </RCC>

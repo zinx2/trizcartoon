@@ -51,7 +51,7 @@ Paper {
                 width: parent.width
                 height: parent.height
                 color: "white"
-                CPListViewMatrix
+                CPListView
                 {
                     width: parent.width
                     height: parent.height
