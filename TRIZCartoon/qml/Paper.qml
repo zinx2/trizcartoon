@@ -7,7 +7,7 @@ Rectangle {
 
     property bool visibleBackBtn : true
     property bool visibleSearchBtn : true
-    property string titleText : R.string_title
+    property string titleText : R.string_title    
     signal evtBack()
     signal evtSearch()
 
@@ -70,6 +70,9 @@ Rectangle {
             type: "image"
             on_Clicked:
             {
+                if (Qt.inputMethod.visible)
+                    Qt.inputMethod.hide()
+
                 evtSearch()
             }
         }

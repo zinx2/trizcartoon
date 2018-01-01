@@ -37,10 +37,12 @@ var font_S         =  pt(19)//36
 var font_XS         =  pt(17)//32.5
 
 var string_title  = "TRIZ 40 Cartoon"
-var view_file_matrix = "VWMatrix.qml"
-var view_file_engineering = "VWEngineering.qml"
-var view_file_popup = "CPPopup.qml"
+var view_file_desc = "VWDesc.qml"
 
 var design_size_width = di.width();
 var design_size_height = di.height();
+
+var view_file_popup = "CPPopup.qml"
+
+
 

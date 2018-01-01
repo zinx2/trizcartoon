@@ -13,38 +13,54 @@ ListView {
     delegate: Rectangle {
 
         width: listView.width
-        height: visible ? R.dp(150) : 0
+        height: visible ? txtSubtitle.contentHeight + R.dp(60) + 1 : 0
         visible: opt.ds ? vs : model.modelData.visibled
 
         property int no: opt.ds ? number : model.modelData.id
         property string title: opt.ds ? name : model.modelData.name
         color: ma.pressed ? R.color_buttonPressed : "white"
 
-        Column
+        Row
         {
+            id: rowItem
             width: parent.width
-            height: parent.height
-
-            Row
+            height: txtSubtitle.contentHeight
+            anchors
             {
-                width: parent.width
-                height: parent.height - 1
-                LYMargin { width: R.dp(40) }
-                CPText
-                {
-                    height: parent.height
-                    font.pointSize: R.pt(22)
-                    text: (no+1) + ". " + title
-                    verticalAlignment: Text.AlignVCenter
-                }
+                left: parent.left
+                leftMargin: R.dp(20)
+                verticalCenter: parent.verticalCenter
+            }
+            CPText
+            {
+                id: lb_no
+                font.pointSize: R.pt(22)
+                height: txtSubtitle.contentHeight / txtSubtitle.lineCount
+                verticalAlignment: Text.AlignVCenter
+                color: "black"
+                text: (no +1) + ". "
             }
 
-
-            LYMargin
+            CPText
             {
-                width: parent.width
-                color: "black"
-                visible: (listView.model.count-1) != index
+                id: txtSubtitle
+                width: parent.width - R.dp(120)
+                height: txtSubtitle.contentHeight
+                font.pointSize: R.pt(22)
+                text: title
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+
+        LYMargin
+        {
+            width: parent.width
+            color: "black"
+            visible: (listView.model.count-1) != index
+            anchors
+            {
+                bottom: parent.bottom
             }
         }
 
@@ -55,8 +71,16 @@ ListView {
             height: parent.height
             onClicked:
             {
+                if (Qt.inputMethod.visible)
+                    Qt.inputMethod.hide()
+
                 if(!opt.ds)
+                {
                     md.setCurrentIndex(no);
+                    //                    stackView.push(vwdesc);
+                    stackView.push(Qt.createComponent(R.view_file_desc), { });
+                }
+
             }
         }
 

@@ -96,6 +96,9 @@ public:
 	}
 
     Q_INVOKABLE int currentIndex() const { return m_currentIndex; }
+    Q_INVOKABLE int size() const { return m_list.length(); }
+    Q_INVOKABLE QString getName(int index) { return qobject_cast<Concept*>(m_list[index])->name(); }
+    Q_INVOKABLE QString getSrc(int index) { return qobject_cast<Concept*>(m_list[index])->src(); }
     Q_INVOKABLE QList<QObject*> list() const { return m_list; }
     Q_INVOKABLE QObject* getCurrentConcept() { return m_list[m_currentIndex]; }
 
@@ -132,6 +135,6 @@ signals:
 
 private:
     QList<QObject*> m_list;
-    int m_currentIndex = -1;
+    int m_currentIndex = 0;
 
 };
